@@ -2,11 +2,18 @@ const express = require("express");
 const Redis = require("ioredis");
 
 const app = express();
+
+/*
+  configure and connect to Redis server
+*/
 const redisClient = new Redis({
   host: "0.0.0.0",
   port: 6379,
 });
 
+/*
+  (optional) monitor the status of Redis connection
+*/
 redisClient.on("connect", () => {
   console.log("Connected to Redis");
 });
@@ -26,6 +33,9 @@ app.post("/", async (req, res) => {
   }
   
   try {
+    /*
+      1. create
+    */
     await redisClient.set(key, value);
     console.log(`[server] ${key}: ${value} 已創建到redis`);
   } catch (error) {
@@ -38,6 +48,9 @@ app.get("/:key", async (req, res) => {
   const key = req.params.key;
 
   try {
+    /*
+      2. read
+    */
     const value = await redisClient.get(key);
 
     if (value) {
