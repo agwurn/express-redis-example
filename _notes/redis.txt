@@ -1,0 +1,22 @@
+安裝部分
+  官方建議用docker hub然後pull下來直接開跑
+  好像跑的時候要設定port對接是6379?
+
+串接部分
+  // 安裝
+  npm i ioredis
+
+  初始設定（設定完就連接上了
+  const redisClient = new Redis({
+    host: "0.0.0.0",
+    port: 6379,
+  });
+
+  (optional) 可以用這個檢查是否有連上
+  redisClient.on("connect, () => {
+    console.log("[redis] connected")
+  })
+
+操作部分
+  await redisClient.set(key, value)
+  await redisClient.get(key)
