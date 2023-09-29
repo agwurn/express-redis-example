@@ -19,11 +19,11 @@ express-redis-example
 |  |-- redisServices.js   // 2. 
 |-- app.js  // 5.
 ```
-1. setup redis connection
-2. define redis services
-3. create functions for express-redis interaction
-4. create APIs by connecting functions and routes
-5. set API routes to our main server 
+1. [config] setup redis connection
+2. [service] define redis services
+3. [controller] create functions for express-redis interaction
+4. [routes] create APIs by connecting functions and routes
+5. [app] set API routes to our main server 
 
 It's more structural when we use our defined function rather than directly touch the redis server functions.
 
@@ -43,7 +43,8 @@ npm i express ioredis
 ```
 nodemon app.js
 ```
-
+### test with postman
+https://www.postman.com/cryosat-geologist-48085018/workspace/formygithub/collection/25131724-e23706ee-be22-4e35-a44f-56b3b84ca315?action=share&creator=25131724
 
 
 ---
